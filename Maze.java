@@ -103,7 +103,7 @@ public class Maze {
     }
   }
 
-  private boolean canMove(int rowMove, int colMove) {
+  public boolean canMove(int rowMove, int colMove) {
     if (col + colMove > 20 || col + colMove < 0 || row + rowMove > 20 || row + rowMove < 0) {
       return false;
     } else if (solution[row + rowMove][col + colMove] == '*') {
@@ -154,22 +154,6 @@ public class Maze {
     return canMove(1, 0);
   }
 
-  public boolean canIJumpRight() {
-    return canMove(2, 0);
-  }
-
-  public boolean canIJumpLeft() {
-    return canMove(-2, 0);
-  }
-
-  public boolean canIJumpUp() {
-    return canMove(0, 2);
-  }
-
-  public boolean canIJumpDown() {
-    return canMove(0, -2);
-  }
-
   private void move(int rowMove, int colMove) {
     if (canMove(rowMove, colMove)) {
       myMap[row][col] = '*';
@@ -213,7 +197,7 @@ public class Maze {
     move(1, 0);
   }
 
-  public void fillSolution() {
+  private void fillSolution() {
     for (int i = 0; i < 6; i++) {
       solution[0][i] = '-';
     }
@@ -305,7 +289,7 @@ public class Maze {
       solution[i][0] = '|';
     }
     addPits();
-    printMap(solution);
+    // printMap(solution);
   }
 
   private void addPits() {
