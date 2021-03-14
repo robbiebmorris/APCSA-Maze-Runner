@@ -23,8 +23,8 @@ public class MazeRunner {
         myMap.moveDown();
       }
       moveCounter++;
-      moveMessage(moveCounter);
       myMap.printMap();
+      moveMessage(moveCounter);
     }
     System.out.println("Congratulations, you made it out alive!");
   }
