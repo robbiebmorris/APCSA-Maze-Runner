@@ -169,6 +169,16 @@ public class Maze {
     // printMap(myMap);
   }
 
+  // new function to enable multidirectional jumping
+  public void jump(int rowMove, int colMove) {
+    if (canMove(rowMove, colMove)) {
+      myMap[row][col] = '*';
+      row += rowMove;
+      col += colMove;
+      myMap[row][col] = 'X';
+    }
+  }
+
   /**
    * Moves your character one space right.
    */
@@ -197,7 +207,7 @@ public class Maze {
     move(1, 0);
   }
 
-  private void fillSolution() {
+  public void fillSolution() {
     for (int i = 0; i < 6; i++) {
       solution[0][i] = '-';
     }
@@ -289,7 +299,7 @@ public class Maze {
       solution[i][0] = '|';
     }
     addPits();
-    // printMap(solution);
+    printMap(solution);
   }
 
   private void addPits() {
