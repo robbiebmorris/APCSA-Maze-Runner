@@ -5,7 +5,7 @@ public class MazeRunner {
     Scanner scan = new Scanner(System.in);
     Maze myMap = new Maze();
     intro(myMap);
-    myMap.fillSolution();
+    // myMap.fillSolution();
     while (!myMap.didIWin()) {
       String nextMove = userMove(myMap, scan);
       if (myMap.isThereAPit(nextMove)) {
@@ -45,7 +45,6 @@ public class MazeRunner {
         continue;
       }
       System.out.println("You must input a valid move!");
-      continue;
     }
   }
 
@@ -66,11 +65,12 @@ public class MazeRunner {
     System.out.println("Watch out! There's a pit ahead. Jump it?");
     String input = scan.nextLine();
     if (input.equals("y")) {
+
       while (true) {
         System.out.println("Which direction do you want to jump? ('R', 'L', 'U', 'D')");
         String dir = scan.nextLine().toUpperCase();
-        if ((dir.equals("R") && myMap.canIJumpRight()) || (dir.equals("L") && myMap.canIJumpLeft()) || dir.equals("U")
-            || dir.equals("D")) {
+        if ((dir.equals("R") && myMap.canMove(0, 2)) || (dir.equals("L") && myMap.canMove(0, -2))
+            || (dir.equals("U") && myMap.canMove(-2, 0)) || (dir.equals("D") && myMap.canMove(2, 0))) {
           myMap.jumpOverPit(dir);
           break;
         } else {
