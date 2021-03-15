@@ -46,7 +46,7 @@ public class MazeRunner {
     System.out.println("Welcome to Maze Runner. This is the maze: ");
     myMap.printMap();
     System.out.println(
-        "Your map will look like all \".\" and one \"x\". The \".\"'s may turn into either walls \"-\" or freespace \"*\". There might even be other surprises as well.");
+        "Your map will look like all \".\" and one \"x\". The \".\"'s may turn into either walls \"-\" or freespace \"*\". \n There might even be other surprises as well.");
   }
 
   public static String userMove(Maze myMap, Scanner scan) {
