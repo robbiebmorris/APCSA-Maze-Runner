@@ -25,10 +25,23 @@ public class MazeRunner {
       moveCounter++;
       myMap.printMap();
       moveMessage(moveCounter);
+      
+      if (moveCounter == 100) {
+        System.out.println("Sorry, but you didn't escape in time - you lose");
+        exit();
+        break;
     }
-    System.out.println("Congratulations, you made it out alive!");
   }
-
+    
+  if (myMap.didIWin() == true && moveCounter < 100) {
+    System.out.println("Congratulations, you beat the maze!");
+  }
+}
+  
+  private static void exit() {
+    
+  }
+  
   public static void intro(Maze myMap) {
     System.out.println("Welcome to Maze Runner. This is the maze: ");
     myMap.printMap();
