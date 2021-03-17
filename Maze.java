@@ -177,6 +177,7 @@ public class Maze {
   // without throwing exceptions when passing over a pit, because the pit should
   // be "jumpable". I cannot use the "JumpOverPit" function because it does not
   // account for diagonal movement.
+
   public void jump(int rowMove, int colMove) {
     if (canMove(rowMove, colMove)) {
       myMap[row][col] = '*';
@@ -306,7 +307,7 @@ public class Maze {
       solution[i][0] = '|';
     }
     addPits();
-    printMap(solution);
+    // printMap(solution);
   }
 
   private void addPits() {
