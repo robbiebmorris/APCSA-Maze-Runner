@@ -169,7 +169,14 @@ public class Maze {
     // printMap(myMap);
   }
 
-  // new function to enable multidirectional jumping
+  // coordinate system as defined: jump(y, x), where positive y values indicate
+  // how far down, negative y values indicate how far up, positive x values
+  // indicate how far right, and negative x values indicate how far left
+
+  // new function to enable multidirectional jumping. This is the same as move but
+  // without throwing exceptions when passing over a pit, because the pit should
+  // be "jumpable". I cannot use the "JumpOverPit" function because it does not
+  // account for diagonal movement.
   public void jump(int rowMove, int colMove) {
     if (canMove(rowMove, colMove)) {
       myMap[row][col] = '*';
